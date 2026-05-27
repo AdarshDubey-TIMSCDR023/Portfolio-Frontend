@@ -288,7 +288,7 @@ function Achievements() {
         {/* STATUS BAR */}
         <div className="mt-12 p-2 bg-white border-2 border-gray-300 flex items-center justify-between text-gray-500 text-xs font-mono relative z-20">
           <span>📁 4 ITEMS | TOTAL SIZE: 2.4 MB</span>
-          <span>🖥️ RETROUI v1.0</span>
+        
           <span>⚡ 100%</span>
         </div>
       </div>
