@@ -225,7 +225,6 @@ function Certificates() {
                   {/* STATUS BAR */}
                   <div className="mt-8 p-2 bg-white border border-black flex items-center justify-between text-gray-500 text-xs font-mono">
                     <span>📁 {certificates.length} CERTIFICATES | SIZE: 2.4 MB</span>
-                    <span>🖥️ RETROUI v1.0</span>
                     <span>⚡ ACTIVE</span>
                   </div>
                 </>
