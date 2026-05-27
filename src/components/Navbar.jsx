@@ -3,226 +3,562 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [active, setActive] = useState("home");
-  const [scrolled, setScrolled] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
-  // Check mobile screen
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  const [menuOpen, setMenuOpen] =
+    useState(false);
 
-  // Close menu on resize to desktop
-  useEffect(() => {
-    if (!isMobile && menuOpen) {
-      setMenuOpen(false);
-    }
-  }, [isMobile, menuOpen]);
+  const [active, setActive] =
+    useState("home");
 
-  // ACTIVE SECTION
+  const [scrolled, setScrolled] =
+    useState(false);
+
+  // ================= ACTIVE SECTION =================
+
   useEffect(() => {
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
+
+    const handleScroll = () => {
+
+      const sections =
+        document.querySelectorAll(
+          "section[id]"
+        );
+
+      const scrollY =
+        window.pageYOffset;
+
+      sections.forEach(
+        (section) => {
+
+          const sectionHeight =
+            section.offsetHeight;
+
+          const sectionTop =
+            section.offsetTop - 110;
+
+          const sectionId =
+            section.getAttribute(
+              "id"
+            );
+
+          if (
+            scrollY >= sectionTop &&
+            scrollY <
+              sectionTop +
+                sectionHeight
+          ) {
+
+            setActive(sectionId);
+
           }
-        });
-      },
-      { threshold: 0.4 }
+
+        }
+      );
+
+      setScrolled(
+        window.scrollY > 15
+      );
+
+    };
+
+    handleScroll();
+
+    window.addEventListener(
+      "scroll",
+      handleScroll
     );
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+    return () =>
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+
+  }, []);
+
+  // ================= BODY LOCK =================
+
+  useEffect(() => {
+
+    document.body.style.overflow =
+      menuOpen
+        ? "hidden"
+        : "unset";
 
     return () => {
-      sections.forEach((section) => {
-        observer.unobserve(section);
+
+      document.body.style.overflow =
+        "unset";
+
+    };
+
+  }, [menuOpen]);
+
+  // ================= NAVIGATION =================
+
+  const handleNavClick = (
+    e,
+    id
+  ) => {
+
+    e.preventDefault();
+
+    const section =
+      document.getElementById(id);
+
+    if (section) {
+
+      const navbarHeight = 85;
+
+      const sectionPosition =
+        section.offsetTop -
+        navbarHeight;
+
+      window.scrollTo({
+
+        top: sectionPosition,
+
+        behavior: "smooth",
+
       });
-    };
-  }, []);
 
-  // SCROLL EFFECT
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+      setActive(id);
 
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (menuOpen && isMobile) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
+      setMenuOpen(false);
+
     }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [menuOpen, isMobile]);
+
+  };
+
+  // ================= NAV LINKS =================
 
   const navLinks = [
-    { name: "Home", href: "#home", id: "home" },
-    { name: "About", href: "#about", id: "about" },
-    { name: "Achievements", href: "#achievements", id: "achievements" },
-    { name: "Projects", href: "#projects", id: "projects" },
-    { name: "Certificates", href: "#certificates", id: "certificates" },
-    { name: "Resume", href: "#resume", id: "resume" },
-  ];
 
-  // Responsive nav classes
-  const getNavClasses = () => {
-    const baseClasses = "fixed top-3 sm:top-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300";
-    const widthClasses = "w-[96%] sm:w-[95%] md:w-[94%] lg:w-[92%]";
-    const paddingClasses = "px-3 sm:px-5 md:px-6 lg:px-8 py-3 sm:py-4";
-    const borderRadiusClasses = "rounded-2xl sm:rounded-3xl";
-    const borderClasses = "border-2 sm:border-[3px] border-black";
-    
-    const bgClasses = scrolled
-      ? "bg-[#f5f1eb]/95 backdrop-blur-2xl shadow-[6px_6px_0px_#000] sm:shadow-[8px_8px_0px_#000] lg:shadow-[10px_10px_0px_#000]"
-      : "bg-[#f5f1eb]/90 backdrop-blur-xl shadow-[5px_5px_0px_#000] sm:shadow-[6px_6px_0px_#000] lg:shadow-[8px_8px_0px_#000]";
-    
-    return `${baseClasses} ${widthClasses} ${paddingClasses} ${borderRadiusClasses} ${borderClasses} ${bgClasses}`;
-  };
+    {
+      name: "Home",
+      id: "home",
+    },
+
+    {
+      name: "About",
+      id: "about",
+    },
+
+    {
+      name: "Achievements",
+      id: "achievements",
+    },
+
+    {
+      name: "Projects",
+      id: "projects",
+    },
+
+    {
+      name: "Certificates",
+      id: "certificates",
+    },
+
+    {
+      name: "Resume",
+      id: "resume",
+    },
+
+  ];
 
   return (
     <>
+
+      {/* ================= NAVBAR ================= */}
+
       <motion.nav
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7 }}
-        className={getNavClasses()}
+
+        initial={{
+          y: -80,
+          opacity: 0,
+        }}
+
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+
+        transition={{
+          duration: 0.6,
+        }}
+
+        className={`fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[94%] xl:w-[88%] border-[3px] border-black rounded-[22px] px-4 sm:px-5 py-3 transition-all duration-300 ${
+          scrolled
+            ? "bg-[#f7f3eb]/95 backdrop-blur-xl shadow-[8px_8px_0px_#000]"
+            : "bg-[#f7f3eb] shadow-[6px_6px_0px_#000]"
+        }`}
+
       >
-        <div className="flex items-center justify-between gap-2 sm:gap-4">
-          {/* LOGO */}
-          <motion.a
-            href="#home"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-black whitespace-nowrap"
-          >
-            Adarsh.D
-          </motion.a>
 
-          {/* DESKTOP NAV */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-2 bg-white/80 backdrop-blur-md border-2 sm:border-[3px] border-black rounded-xl md:rounded-2xl px-2 md:px-3 py-1.5 md:py-2 shadow-[3px_3px_0px_#000] md:shadow-[4px_4px_0px_#000]">
-            {navLinks.map((link) => (
-              <motion.a
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                key={link.id}
-                href={link.href}
-                className={`px-2 xl:px-4 2xl:px-5 py-1.5 xl:py-2 rounded-xl font-bold text-sm xl:text-base transition-all duration-300 whitespace-nowrap ${
-                  active === link.id
-                    ? "bg-yellow-300 text-black border-2 border-black shadow-[2px_2px_0px_#000]"
-                    : "text-black hover:bg-yellow-100"
-                }`}
-              >
-                {link.name}
-              </motion.a>
-            ))}
-          </div>
+        {/* FLOATING BALL */}
 
-          {/* DESKTOP LET'S TALK BUTTON */}
-          <div className="hidden lg:flex">
-            <motion.a
-              href="#contact"
-              whileHover={{ y: -3 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 xl:px-6 py-2 xl:py-3 bg-yellow-300 border-2 sm:border-[3px] border-black text-black font-black rounded-xl xl:rounded-2xl shadow-[4px_4px_0px_#000] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition duration-200 text-sm xl:text-base whitespace-nowrap"
-            >
-              Let's Talk
-            </motion.a>
-          </div>
+        <motion.div
 
-          {/* MOBILE & TABLET MENU BUTTON */}
+          animate={{
+            y: [0, -3, 0],
+          }}
+
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+          }}
+
+          className="hidden lg:block absolute -top-2 -right-2 w-4 h-4 bg-yellow-300 border-[2px] border-black rounded-full"
+
+        />
+
+        <div className="flex items-center justify-between gap-3">
+
+          {/* ================= LOGO ================= */}
+
           <motion.button
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden w-10 h-10 sm:w-12 sm:h-12 bg-yellow-300 border-2 sm:border-[3px] border-black rounded-xl flex items-center justify-center shadow-[3px_3px_0px_#000] sm:shadow-[4px_4px_0px_#000] cursor-pointer z-50 relative"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
+
+            whileHover={{
+              scale: 1.03,
+            }}
+
+            whileTap={{
+              scale: 0.95,
+            }}
+
+            onClick={(e) =>
+              handleNavClick(
+                e,
+                "home"
+              )
+            }
+
+            className="relative"
+
           >
-            {menuOpen ? (
-              <HiX className="text-2xl sm:text-3xl text-black" />
-            ) : (
-              <HiMenuAlt3 className="text-2xl sm:text-3xl text-black" />
-            )}
+
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-black text-black">
+
+              Adarsh.D
+
+            </h1>
+
+            <motion.div
+
+              animate={{
+                width: [
+                  "0%",
+                  "100%",
+                  "0%",
+                ],
+              }}
+
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+              }}
+
+              className="h-[2px] bg-yellow-300 border border-black mt-1"
+
+            />
+
           </motion.button>
+
+          {/* ================= DESKTOP NAV ================= */}
+
+          <div className="hidden lg:flex items-center gap-2 bg-white border-[3px] border-black rounded-2xl px-2 py-2 shadow-[3px_3px_0px_#000]">
+
+            {
+              navLinks.map(
+                (link, index) => (
+
+                  <motion.button
+
+                    key={link.id}
+
+                    whileHover={{
+                      y: -2,
+                      rotate:
+                        index % 2 === 0
+                          ? -1
+                          : 1,
+                    }}
+
+                    whileTap={{
+                      scale: 0.95,
+                    }}
+
+                    onClick={(e) =>
+                      handleNavClick(
+                        e,
+                        link.id
+                      )
+                    }
+
+                    className={`px-3 py-2 rounded-xl text-sm font-black transition-all duration-300 ${
+                      active ===
+                      link.id
+                        ? "bg-yellow-300 border-[3px] border-black shadow-[3px_3px_0px_#000]"
+                        : "hover:bg-pink-100"
+                    }`}
+
+                  >
+
+                    {link.name}
+
+                  </motion.button>
+
+                )
+              )
+            }
+
+          </div>
+
+          {/* ================= CONTACT BUTTON ================= */}
+
+          <motion.button
+
+            whileHover={{
+              y: -2,
+            }}
+
+            whileTap={{
+              scale: 0.95,
+            }}
+
+            onClick={(e) =>
+              handleNavClick(
+                e,
+                "contact"
+              )
+            }
+
+            className="hidden lg:flex px-4 py-2.5 bg-yellow-300 border-[3px] border-black rounded-2xl font-black text-sm shadow-[3px_3px_0px_#000] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all duration-200"
+
+          >
+
+            Let's Talk
+
+          </motion.button>
+
+          {/* ================= MOBILE BUTTON ================= */}
+
+          <motion.button
+
+            whileTap={{
+              scale: 0.9,
+            }}
+
+            onClick={() =>
+              setMenuOpen(
+                !menuOpen
+              )
+            }
+
+            className="lg:hidden w-11 h-11 bg-yellow-300 border-[3px] border-black rounded-2xl flex items-center justify-center shadow-[3px_3px_0px_#000]"
+
+          >
+
+            {
+              menuOpen
+                ? (
+                  <HiX className="text-2xl text-black" />
+                )
+                : (
+                  <HiMenuAlt3 className="text-2xl text-black" />
+                )
+            }
+
+          </motion.button>
+
         </div>
 
-        {/* MOBILE & TABLET DROPDOWN MENU - FIXED VISIBILITY */}
-        <AnimatePresence mode="wait">
-          {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="lg:hidden overflow-hidden"
-            >
-              <div
-                className={`mt-4 sm:mt-6 ${
-                  isMobile
-                    ? "bg-[#f5f1eb] border-2 sm:border-[3px] border-black rounded-2xl shadow-[8px_8px_0px_#000] p-4"
-                    : "bg-[#f5f1eb] border-2 sm:border-[3px] border-black rounded-2xl shadow-[6px_6px_0px_#000] p-5"
-                }`}
-              >
-                <div className="flex flex-col gap-2 sm:gap-3">
-                  {navLinks.map((link, index) => (
-                    <motion.div
-                      key={link.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                    >
-                      <a
-                        href={link.href}
-                        onClick={() => setMenuOpen(false)}
-                        className={`block px-4 sm:px-5 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg transition-all duration-300 cursor-pointer ${
-                          active === link.id
-                            ? "bg-yellow-300 border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_#000]"
-                            : "bg-white border-2 sm:border-[3px] border-black hover:bg-yellow-50 hover:translate-x-1"
-                        }`}
-                      >
-                        {link.name}
-                      </a>
-                    </motion.div>
-                  ))}
+        {/* ================= MOBILE MENU ================= */}
 
-                  {/* MOBILE & TABLET LET'S TALK BUTTON */}
+        <AnimatePresence>
+
+          {
+            menuOpen && (
+
+              <motion.div
+
+                initial={{
+                  opacity: 0,
+                  scale: 0.96,
+                  y: -10,
+                }}
+
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                }}
+
+                exit={{
+                  opacity: 0,
+                  scale: 0.96,
+                  y: -10,
+                }}
+
+                transition={{
+                  duration: 0.22,
+                }}
+
+                className="lg:hidden mt-4"
+
+              >
+
+                <div className="relative bg-[#f7f3eb] border-[3px] border-black rounded-[24px] p-3 shadow-[8px_8px_0px_#000] overflow-hidden">
+
+                  {/* FLOATING SHAPES */}
+
                   <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: navLinks.length * 0.05 }}
-                    className="mt-2"
-                  >
-                    <a
-                      href="#contact"
-                      onClick={() => setMenuOpen(false)}
-                      className="block px-4 sm:px-6 py-3 sm:py-4 bg-yellow-300 border-2 sm:border-[3px] border-black text-black font-black rounded-xl sm:rounded-2xl shadow-[4px_4px_0px_#000] text-center text-base sm:text-lg cursor-pointer hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition duration-200"
+
+                    animate={{
+                      rotate: [
+                        0,
+                        12,
+                        0,
+                      ],
+                    }}
+
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                    }}
+
+                    className="absolute top-2 right-2 w-4 h-4 bg-pink-300 border-[2px] border-black rotate-12"
+
+                  />
+
+                  <motion.div
+
+                    animate={{
+                      y: [0, -3, 0],
+                    }}
+
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                    }}
+
+                    className="absolute bottom-2 left-2 w-3 h-3 bg-cyan-300 border-[2px] border-black rounded-full"
+
+                  />
+
+                  {/* MENU ITEMS */}
+
+                  <div className="flex flex-col gap-2 relative z-10">
+
+                    {
+                      navLinks.map(
+                        (
+                          link,
+                          index
+                        ) => (
+
+                          <motion.button
+
+                            key={link.id}
+
+                            initial={{
+                              opacity: 0,
+                              x: -15,
+                            }}
+
+                            animate={{
+                              opacity: 1,
+                              x: 0,
+                            }}
+
+                            transition={{
+                              delay:
+                                index *
+                                0.04,
+                            }}
+
+                            whileTap={{
+                              scale: 0.97,
+                            }}
+
+                            onClick={(e) =>
+                              handleNavClick(
+                                e,
+                                link.id
+                              )
+                            }
+
+                            className={`w-full text-left px-4 py-3 rounded-[18px] border-[3px] border-black text-[15px] font-black transition-all duration-300 ${
+                              active ===
+                              link.id
+                                ? "bg-yellow-300 shadow-[3px_3px_0px_#000]"
+                                : "bg-white hover:bg-pink-100"
+                            }`}
+
+                          >
+
+                            {link.name}
+
+                          </motion.button>
+
+                        )
+                      )
+                    }
+
+                    {/* CONTACT */}
+
+                    <motion.button
+
+                      initial={{
+                        opacity: 0,
+                        x: -15,
+                      }}
+
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                      }}
+
+                      transition={{
+                        delay: 0.25,
+                      }}
+
+                      whileTap={{
+                        scale: 0.97,
+                      }}
+
+                      onClick={(e) =>
+                        handleNavClick(
+                          e,
+                          "contact"
+                        )
+                      }
+
+                      className="mt-1 px-4 py-3 bg-yellow-300 border-[3px] border-black rounded-[18px] text-[15px] font-black shadow-[3px_3px_0px_#000]"
+
                     >
+
                       Let's Talk
-                    </a>
-                  </motion.div>
+
+                    </motion.button>
+
+                  </div>
+
                 </div>
-              </div>
-            </motion.div>
-          )}
+
+              </motion.div>
+
+            )
+          }
+
         </AnimatePresence>
+
       </motion.nav>
 
-      {/* Spacer to prevent content from hiding under fixed navbar */}
-      <div className="h-[72px] sm:h-[80px] lg:h-[88px]" />
+      {/* ================= SPACER ================= */}
+
+      <div className="h-[80px]" />
+
     </>
   );
 }
