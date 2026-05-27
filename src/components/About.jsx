@@ -165,7 +165,7 @@ function About() {
                 >
                   <div className="w-28 h-36 sm:w-32 sm:h-40 md:w-36 md:h-44 bg-yellow-400 border-[3px] sm:border-[4px] border-black rounded-none overflow-hidden shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000]">
                     <img
-                      src="Me.png"
+                      src="/Me.png"
                       alt="Adarsh"
                       className="w-full h-full object-cover"
                     />
