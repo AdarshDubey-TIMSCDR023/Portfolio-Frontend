@@ -11,28 +11,90 @@ function Contact() {
     message: "",
   });
 
-  const [loading, setLoading] =
-    useState(false);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const [success, setSuccess] =
-    useState(false);
+  // VALIDATION RULES
+  const validateForm = () => {
+    const errors = {
+      name: "",
+      email: "",
+      message: "",
+    };
+
+    // Name validation
+    if (!formData.name.trim()) {
+      errors.name = "Full Name is required";
+    } else if (formData.name.trim().length < 2) {
+      errors.name = "Name must be at least 2 characters long";
+    } else if (formData.name.trim().length > 50) {
+      errors.name = "Name must not exceed 50 characters";
+    } else if (!/^[a-zA-Z\s'-]+$/.test(formData.name)) {
+      errors.name = "Name can only contain letters, spaces, hyphens, and apostrophes";
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      errors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = "Please enter a valid email address";
+    } else if (formData.email.length > 100) {
+      errors.email = "Email must not exceed 100 characters";
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      errors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      errors.message = "Message must be at least 10 characters long";
+    } else if (formData.message.trim().length > 1000) {
+      errors.message = "Message must not exceed 1000 characters";
+    }
+
+    setFieldErrors(errors);
+    return Object.values(errors).every((err) => err === "");
+  };
 
   // HANDLE CHANGE
   const handleChange = (e) => {
-
+    const { name, value } = e.target;
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    // Clear field error on change
+    if (fieldErrors[name]) {
+      setFieldErrors({
+        ...fieldErrors,
+        [name]: "",
+      });
+    }
+
+    // Clear general error on change
+    if (error) {
+      setError("");
+    }
   };
 
   // HANDLE SUBMIT
   const handleSubmit = async (e) => {
-
     e.preventDefault();
+    setError("");
+
+    // Validate form before submission
+    if (!validateForm()) {
+      return;
+    }
 
     try {
-
       setLoading(true);
 
       const response = await API.post(
@@ -43,27 +105,29 @@ function Contact() {
       console.log(response.data);
 
       setSuccess(true);
-
       setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+      setFieldErrors({
         name: "",
         email: "",
         message: "",
       });
 
       setTimeout(() => {
-
         setSuccess(false);
-
       }, 3000);
 
-    } catch (error) {
-
-      console.log(error);
-
+    } catch (err) {
+      console.log(err);
+      setError(
+        err.response?.data?.message ||
+        "Failed to send message. Please try again later."
+      );
     } finally {
-
       setLoading(false);
-
     }
   };
 
@@ -98,7 +162,7 @@ function Contact() {
 
             <h2 className="mt-8 text-5xl sm:text-6xl lg:text-7xl font-black text-black leading-tight">
 
-              Let’s Build
+              Let's Build
               <span className="text-yellow-500">
                 {" "}Something
               </span>
@@ -112,7 +176,7 @@ function Contact() {
             <p className="mt-6 text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-xl">
 
               Have a project idea or collaboration?
-              Send me a message and let’s create
+              Send me a message and let's create
               something powerful together.
 
             </p>
@@ -127,7 +191,15 @@ function Contact() {
             viewport={{ once: true }}
             onSubmit={handleSubmit}
             className="bg-[#fffdf8] border-[4px] border-black rounded-[35px] p-8 sm:p-10 shadow-[10px_10px_0px_#000]"
+            noValidate
           >
+
+            {/* GENERAL ERROR MESSAGE */}
+            {error && (
+              <div className="mb-6 px-5 py-4 bg-red-300 border-[3px] border-red-600 rounded-2xl text-red-900 font-bold">
+                {error}
+              </div>
+            )}
 
             {/* NAME */}
             <div>
@@ -144,9 +216,19 @@ function Contact() {
                 placeholder="Enter your name"
                 value={formData.name}
                 onChange={handleChange}
-                required
-                className="w-full mt-3 px-5 py-4 bg-white border-[3px] border-black rounded-2xl text-black outline-none"
+                maxLength="50"
+                className={`w-full mt-3 px-5 py-4 bg-white border-[3px] rounded-2xl text-black outline-none transition-colors ${
+                  fieldErrors.name
+                    ? "border-red-500 bg-red-50"
+                    : "border-black"
+                }`}
               />
+
+              {fieldErrors.name && (
+                <p className="mt-2 text-red-600 text-sm font-semibold">
+                  {fieldErrors.name}
+                </p>
+              )}
 
             </div>
 
@@ -165,9 +247,19 @@ function Contact() {
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleChange}
-                required
-                className="w-full mt-3 px-5 py-4 bg-white border-[3px] border-black rounded-2xl text-black outline-none"
+                maxLength="100"
+                className={`w-full mt-3 px-5 py-4 bg-white border-[3px] rounded-2xl text-black outline-none transition-colors ${
+                  fieldErrors.email
+                    ? "border-red-500 bg-red-50"
+                    : "border-black"
+                }`}
               />
+
+              {fieldErrors.email && (
+                <p className="mt-2 text-red-600 text-sm font-semibold">
+                  {fieldErrors.email}
+                </p>
+              )}
 
             </div>
 
@@ -186,37 +278,47 @@ function Contact() {
                 placeholder="Write your message..."
                 value={formData.message}
                 onChange={handleChange}
-                required
-                className="w-full mt-3 px-5 py-4 bg-white border-[3px] border-black rounded-2xl text-black outline-none resize-none"
+                maxLength="1000"
+                className={`w-full mt-3 px-5 py-4 bg-white border-[3px] rounded-2xl text-black outline-none resize-none transition-colors ${
+                  fieldErrors.message
+                    ? "border-red-500 bg-red-50"
+                    : "border-black"
+                }`}
               />
+
+              <div className="flex justify-between items-center mt-2">
+                <p
+                  className={`text-sm font-semibold ${
+                    fieldErrors.message
+                      ? "text-red-600"
+                      : "text-gray-600"
+                  }`}
+                >
+                  {fieldErrors.message
+                    ? fieldErrors.message
+                    : `${formData.message.length}/1000`}
+                </p>
+              </div>
 
             </div>
 
             {/* SUCCESS MESSAGE */}
-            {
-              success && (
+            {success && (
+              <div className="mt-6 px-5 py-4 bg-green-300 border-[3px] border-green-600 rounded-2xl text-green-900 font-bold animate-pulse">
 
-                <div className="mt-6 px-5 py-4 bg-green-300 border-[3px] border-black rounded-2xl text-black font-bold">
+                Message Sent Successfully
 
-                  Message Sent Successfully
-
-                </div>
-
-              )
-            }
+              </div>
+            )}
 
             {/* BUTTON */}
             <button
               type="submit"
-              disabled={loading}
-              className="w-full mt-8 px-6 py-4 bg-yellow-300 border-[4px] border-black rounded-2xl text-black font-black text-lg shadow-[6px_6px_0px_#000] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition duration-200"
+              disabled={loading || Object.values(fieldErrors).some((err) => err !== "")}
+              className="w-full mt-8 px-6 py-4 bg-yellow-300 border-[4px] border-black rounded-2xl text-black font-black text-lg shadow-[6px_6px_0px_#000] hover:translate-x-1 hover:translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
 
-              {
-                loading
-                  ? "Sending..."
-                  : "Send Message"
-              }
+              {loading ? "Sending..." : "Send Message"}
 
             </button>
 
