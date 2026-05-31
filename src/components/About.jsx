@@ -13,7 +13,7 @@ function About() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const skills = ["React", "Node.js", "MongoDB", "Github"];
+  const skills = ["React", "Node.js", "MongoDB" ,"REST API", "Github"];
 
   const education = [
     {
