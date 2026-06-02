@@ -14,13 +14,13 @@ function Achievements() {
       description:
         "1st Prize Winner at ICAIM 2026. Recognized for innovative research contribution.",
       image:
-        "https://blogger.googleusercontent.com/img/a/AVvXsEj5YNiR6yqPh6vwWB4lUsIUepgfsFx3I4ljk2_HbOEKNeqoWcVIF_OF41tV0Ywik6ztpF6f0wZ51uGKfbuszmQQtspPjrdj1mYoMqipyhN1IThxIjBLDwG5GgplWfQah9Oo3XODuWI9rreMMZZ47KMTyuwXu0j92uBBlQzHvIkL9zXNtu2QIuEVvr1k9jU",
+        "https://blogger.googleusercontent.com/img/a/AVvXsEj5YNiR6yqPh6vwWB4lUsIUepgfsFx3I4ljk2_HbOEKNeqoWcVIF_OF41tV0Ywik6ztpF6f0wZ51uGKfbuszmQQtspPjrdj1mYoMqipyhN1IThxIjBLDwG5GgplWfQah9Oo3XODuWI9rre[...]",
       icon: <FaTrophy />,
       color: "from-yellow-400 to-amber-400",
       bgColor: "bg-yellow-50",
       tag: "Winner",
       link:
-        "https://www.linkedin.com/posts/adarsh-dubey27032004_research-artificialintelligence-agriculture-ugcPost-7427339366248845312-hHjh/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEbG4_EBTDz8YhDdDXoZQL8ryuJ3KH-nGNU",
+        "https://www.linkedin.com/posts/adarsh-dubey27032004_research-artificialintelligence-agriculture-ugcPost-7427339366248845312-hHjh/?utm_source=social_share_send&utm_medium=member_desktop_web&rc[...]",
     },
 
     {
@@ -28,13 +28,13 @@ function Achievements() {
       description:
         "Secured 2nd position in a tech fest focused on innovation and project development.",
       image:
-        "https://blogger.googleusercontent.com/img/a/AVvXsEhAx5IsYbP2eVI6CNWIV2VStPVoagB3kPsz3VB5UDFsdsqM2EwoHQlzhOJlTOZSGbVfXtGAfJt3hXtLyhM9omUQR58KQnHWQAlWhubqCdhDNgegDEwAsg74yh2mNY8QKucaIxeBvPkWo5CDzetsTSPqh3Hd0iDPWMPPEVRfQYU1OjTcFw8lGJE0YrjX8oo",
+        "https://blogger.googleusercontent.com/img/a/AVvXsEhAx5IsYbP2eVI6CNWIV2VStPVoagB3kPsz3VB5UDFsdsqM2EwoHQlzhOJlTOZSGbVfXtGAfJt3hXtLyhM9omUQR58KQnHWQAlWhubqCdhDNgegDEwAsg74yh2mNY8QKucaIxeBvPkWo5C[...]",
       icon: <FaTrophy />,
       color: "from-cyan-400 to-sky-400",
       bgColor: "bg-cyan-50",
       tag: "Tech Fest",
       link:
-        "https://www.linkedin.com/posts/adarsh-dubey27032004_techastra-runnerup-naviride-activity-7303343108446994433-LsAP?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEbG4_EBTDz8YhDdDXoZQL8ryuJ3KH-nGNU",
+        "https://www.linkedin.com/posts/adarsh-dubey27032004_techastra-runnerup-naviride-activity-7303343108446994433-LsAP?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEbG4_EBTD[...]",
     },
 
     {
@@ -42,13 +42,13 @@ function Achievements() {
       description:
         "Worked as a Web Development Intern and gained experience in building modern web applications.",
       image:
-        "https://blogger.googleusercontent.com/img/a/AVvXsEjPYx8I6GkNx43LPpx6yezJ8Sej-uxaQ4E-kKkYEsLOqd6TMwzd9Es1x8df4iBZOkkB2ZXOzF32a28bhHDH0zb4mTzYkooHIoJ_6Bu-Jiv3Tw0S2RE1fLGEV_EG8KKB9V4tZv5aAKFNkRl2jkNoJguKpexpGogqz1AllixULtDlho8wpJP4Q7DvTTCf8PI",
+        "https://blogger.googleusercontent.com/img/a/AVvXsEjPYx8I6GkNx43LPpx6yezJ8Sej-uxaQ4E-kKkYEsLOqd6TMwzd9Es1x8df4iBZOkkB2ZXOzF32a28bhHDH0zb4mTzYkooHIoJ_6Bu-Jiv3Tw0S2RE1fLGEV_EG8KKB9V4tZv5aAKFNkRl[...]",
       icon: <FaLaptopCode />,
       color: "from-blue-400 to-cyan-400",
       bgColor: "bg-blue-50",
       tag: "Internship",
       link:
-        "https://www.linkedin.com/posts/adarsh-dubey27032004_certification-in-web-development-activity-7163873917323931649-ABTC?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEbG4_EBTDz8YhDdDXoZQL8ryuJ3KH-nGNU",
+        "https://www.linkedin.com/posts/adarsh-dubey27032004_certification-in-web-development-activity-7163873917323931649-ABTC?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEbG4[...]",
     },
 
     {
@@ -56,13 +56,27 @@ function Achievements() {
       description:
         "Participated in The Business Quiz organized by NDLI Club and IIT Kharagpur.",
       image:
-        "https://blogger.googleusercontent.com/img/a/AVvXsEhMwAlo6VjCB7deSgCSn9KQzW2sRvrBs0bfkpGwQHeaLXzCJCvm3K6JhrfWlDfeLbPm5FEwGmeAhAE0xcMoYYM8PvtQ_DJSLp86fXM37woIDMCu4kWfWMeVbarrxCk8eH_d9Nc45WDP0TgPAEQELfm4KQPUdtyozNlvWKzfk8K7c4l-wa0LPLu2cwWrBEM",
+        "https://blogger.googleusercontent.com/img/a/AVvXsEhMwAlo6VjCB7deSgCSn9KQzW2sRvrBs0bfkpGwQHeaLXzCJCvm3K6JhrfWlDfeLbPm5FEwGmeAhAE0xcMoYYM8PvtQ_DJSLp86fXM37woIDMCu4kWfWMeVbarrxCk8eH_d9Nc45WDP0Tg[...]",
       icon: <FaCertificate />,
       color: "from-green-400 to-emerald-400",
       bgColor: "bg-green-50",
       tag: "Quiz",
       link:
         "https://mittimaimilladenge.blogspot.com/2026/05/participating-in-ndli-business-quiz.html",
+    },
+
+    {
+      title: "Bachelor of Computer Applications",
+      description:
+        "Successfully completed Bachelor of Computer Applications (BCA) in 2025, building a strong foundation in software development, web technologies, databases, and computer science.",
+      image:
+        "https://blogger.googleusercontent.com/img/a/AVvXsEgXNPR-oa6uVF5mpp4i5yJTNZ3Oy1wrtNvm2owp4UyONXx8vWTGhJeYhWVyV1aYluZk-AS4zBb1qCO02BF6ZwUmMxvir9WQ60k8Y6zR40XGrl9mlq4XWMUdqVfpZMSzzHczpyaPb5eLdomLs1HMeX6kysZn6_gcqCrkjdXilsDNOrX_f96DDoaP7JLBztk",
+      icon: <FaAward />,
+      color: "from-purple-400 to-pink-400",
+      bgColor: "bg-purple-50",
+      tag: "Degree",
+      link:
+        "https://adarshdubeyportfolio.blogspot.com/2026/06/graduation-milestone-proud-to-share.html",
     },
   ];
 
@@ -225,7 +239,7 @@ function Achievements() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5, rotate: 0 }}
-              className="bg-white border-4 border-gray-300 rounded-none overflow-hidden shadow-[8px_8px_0px_#000] hover:shadow-[4px_4px_0px_#000] hover:translate-x-1 hover:translate-y-1 transition-all duration-300 group relative z-20"
+              className="bg-white border-4 border-gray-300 rounded-none overflow-hidden shadow-[8px_8px_0px_#000] hover:shadow-[4px_4px_0px_#000] hover:translate-x-1 hover:translate-y-1 transition-all group"
             >
               {/* IMAGE SECTION */}
               <div className="relative h-40 sm:h-44 md:h-48 overflow-hidden border-b-4 border-gray-300">
@@ -287,7 +301,7 @@ function Achievements() {
 
         {/* STATUS BAR */}
         <div className="mt-12 p-2 bg-white border-2 border-gray-300 flex items-center justify-between text-gray-500 text-xs font-mono relative z-20">
-          <span>📁 4 ITEMS | TOTAL SIZE: 2.4 MB</span>
+          <span>📁 5 ITEMS | TOTAL SIZE: 3.0 MB</span>
         
           <span>⚡ 100%</span>
         </div>
