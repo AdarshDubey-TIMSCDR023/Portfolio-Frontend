@@ -14,7 +14,7 @@ function Achievements() {
       description:
         "Successfully completed Bachelor of Computer Applications (BCA) in 2025, building a strong foundation in software development, web technologies, databases, and computer science.",
       image:
-        "https://blogger.googleusercontent.com/img/a/AVvXsEgXNPR-oa6uVF5mpp4i5yJTNZ3Oy1wrtNvm2owp4UyONXx8vWTGhJeYhWVyV1aYluZk-AS4zBb1qCO02BF6ZwUmMxvir9WQ60k8Y6zR40XGrl9mlq4XWMUdqVfpZMSzzHczpyaPb5eLdom[...]",
+        "https://blogger.googleusercontent.com/img/a/AVvXsEgXNPR-oa6uVF5mpp4i5yJTNZ3Oy1wrtNvm2owp4UyONXx8vWTGhJeYhWVyV1aYluZk-AS4zBb1qCO02BF6ZwUmMxvir9WQ60k8Y6zR40XGrl9mlq4XWMUdqVfpZMSzzHczpyaPb5eLdomLs1HMeX6kysZn6_gcqCrkjdXilsDNOrX_f96DDoaP7JLBztk",
       icon: <FaAward />,
       color: "from-purple-400 to-pink-400",
       bgColor: "bg-purple-50",
@@ -28,7 +28,7 @@ function Achievements() {
       description:
         "1st Prize Winner at ICAIM 2026. Recognized for innovative research contribution.",
       image:
-        "https://blogger.googleusercontent.com/img/a/AVvXsEj5YNiR6yqPh6vwWB4lUsIUepgfsFx3I4ljk2_HbOEKNeqoWcVIF_OF41tV0Ywik6ztpF6f0wZ51uGKfbuszmQQtspPjrdj1mYoMqipyhN1IThxIjBLDwG5GgplWfQah9Oo3XODuWI9rre[...]",
+        "https://blogger.googleusercontent.com/img/a/AVvXsEj5YNiR6yqPh6vwWB4lUsIUepgfsFx3I4ljk2_HbOEKNeqoWcVIF_OF41tV0Ywik6ztpF6f0wZ51uGKfbuszmQQtspPjrdj1mYoMqipyhN1IThxIjBLDwG5GgplWfQah9Oo3XODuWI9rreMMZZ47KMTyuwXu0j92uBBlQzHvIkL9zXNtu2QIuEVvr1k9jU",
       icon: <FaTrophy />,
       color: "from-yellow-400 to-amber-400",
       bgColor: "bg-yellow-50",
@@ -42,7 +42,7 @@ function Achievements() {
       description:
         "Secured 2nd position in a tech fest focused on innovation and project development.",
       image:
-        "https://blogger.googleusercontent.com/img/a/AVvXsEhAx5IsYbP2eVI6CNWIV2VStPVoagB3kPsz3VB5UDFsdsqM2EwoHQlzhOJlTOZSGbVfXtGAfJt3hXtLyhM9omUQR58KQnHWQAlWhubqCdhDNgegDEwAsg74yh2mNY8QKucaIxeBvPkWo5C[...]",
+        "https://blogger.googleusercontent.com/img/a/AVvXsEhAx5IsYbP2eVI6CNWIV2VStPVoagB3kPsz3VB5UDFsdsqM2EwoHQlzhOJlTOZSGbVfXtGAfJt3hXtLyhM9omUQR58KQnHWQAlWhubqCdhDNgegDEwAsg74yh2mNY8QKucaIxeBvPkWo5CDzetsTSPqh3Hd0iDPWMPPEVRfQYU1OjTcFw8lGJE0YrjX8oo",
       icon: <FaTrophy />,
       color: "from-cyan-400 to-sky-400",
       bgColor: "bg-cyan-50",
@@ -56,7 +56,7 @@ function Achievements() {
       description:
         "Worked as a Web Development Intern and gained experience in building modern web applications.",
       image:
-        "https://blogger.googleusercontent.com/img/a/AVvXsEjPYx8I6GkNx43LPpx6yezJ8Sej-uxaQ4E-kKkYEsLOqd6TMwzd9Es1x8df4iBZOkkB2ZXOzF32a28bhHDH0zb4mTzYkooHIoJ_6Bu-Jiv3Tw0S2RE1fLGEV_EG8KKB9V4tZv5aAKFNkRl[...]",
+        "https://blogger.googleusercontent.com/img/a/AVvXsEjPYx8I6GkNx43LPpx6yezJ8Sej-uxaQ4E-kKkYEsLOqd6TMwzd9Es1x8df4iBZOkkB2ZXOzF32a28bhHDH0zb4mTzYkooHIoJ_6Bu-Jiv3Tw0S2RE1fLGEV_EG8KKB9V4tZv5aAKFNkRl2jkNoJguKpexpGogqz1AllixULtDlho8wpJP4Q7DvTTCf8PI",
       icon: <FaLaptopCode />,
       color: "from-blue-400 to-cyan-400",
       bgColor: "bg-blue-50",
@@ -70,7 +70,7 @@ function Achievements() {
       description:
         "Participated in The Business Quiz organized by NDLI Club and IIT Kharagpur.",
       image:
-        "https://blogger.googleusercontent.com/img/a/AVvXsEhMwAlo6VjCB7deSgCSn9KQzW2sRvrBs0bfkpGwQHeaLXzCJCvm3K6JhrfWlDfeLbPm5FEwGmeAhAE0xcMoYYM8PvtQ_DJSLp86fXM37woIDMCu4kWfWMeVbarrxCk8eH_d9Nc45WDP0Tg[...]",
+        "https://blogger.googleusercontent.com/img/a/AVvXsEhMwAlo6VjCB7deSgCSn9KQzW2sRvrBs0bfkpGwQHeaLXzCJCvm3K6JhrfWlDfeLbPm5FEwGmeAhAE0xcMoYYM8PvtQ_DJSLp86fXM37woIDMCu4kWfWMeVbarrxCk8eH_d9Nc45WDP0TgPAEQELfm4KQPUdtyozNlvWKzfk8K7c4l-wa0LPLu2cwWrBEM",
       icon: <FaCertificate />,
       color: "from-green-400 to-emerald-400",
       bgColor: "bg-green-50",
