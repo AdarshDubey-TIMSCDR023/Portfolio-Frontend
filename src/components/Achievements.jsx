@@ -10,6 +10,20 @@ import { GiCricketBat } from "react-icons/gi";
 function Achievements() {
   const achievements = [
     {
+      title: "Bachelor of Computer Applications",
+      description:
+        "Successfully completed Bachelor of Computer Applications (BCA) in 2025, building a strong foundation in software development, web technologies, databases, and computer science.",
+      image:
+        "https://blogger.googleusercontent.com/img/a/AVvXsEgXNPR-oa6uVF5mpp4i5yJTNZ3Oy1wrtNvm2owp4UyONXx8vWTGhJeYhWVyV1aYluZk-AS4zBb1qCO02BF6ZwUmMxvir9WQ60k8Y6zR40XGrl9mlq4XWMUdqVfpZMSzzHczpyaPb5eLdom[...]",
+      icon: <FaAward />,
+      color: "from-purple-400 to-pink-400",
+      bgColor: "bg-purple-50",
+      tag: "Degree",
+      link:
+        "https://adarshdubeyportfolio.blogspot.com/2026/06/graduation-milestone-proud-to-share.html",
+    },
+
+    {
       title: "Research Poster",
       description:
         "1st Prize Winner at ICAIM 2026. Recognized for innovative research contribution.",
@@ -63,20 +77,6 @@ function Achievements() {
       tag: "Quiz",
       link:
         "https://mittimaimilladenge.blogspot.com/2026/05/participating-in-ndli-business-quiz.html",
-    },
-
-    {
-      title: "Bachelor of Computer Applications",
-      description:
-        "Successfully completed Bachelor of Computer Applications (BCA) in 2025, building a strong foundation in software development, web technologies, databases, and computer science.",
-      image:
-        "https://blogger.googleusercontent.com/img/a/AVvXsEgXNPR-oa6uVF5mpp4i5yJTNZ3Oy1wrtNvm2owp4UyONXx8vWTGhJeYhWVyV1aYluZk-AS4zBb1qCO02BF6ZwUmMxvir9WQ60k8Y6zR40XGrl9mlq4XWMUdqVfpZMSzzHczpyaPb5eLdomLs1HMeX6kysZn6_gcqCrkjdXilsDNOrX_f96DDoaP7JLBztk",
-      icon: <FaAward />,
-      color: "from-purple-400 to-pink-400",
-      bgColor: "bg-purple-50",
-      tag: "Degree",
-      link:
-        "https://adarshdubeyportfolio.blogspot.com/2026/06/graduation-milestone-proud-to-share.html",
     },
   ];
 
@@ -239,7 +239,7 @@ function Achievements() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -5, rotate: 0 }}
-              className="bg-white border-4 border-gray-300 rounded-none overflow-hidden shadow-[8px_8px_0px_#000] hover:shadow-[4px_4px_0px_#000] hover:translate-x-1 hover:translate-y-1 transition-all group"
+              className="bg-white border-4 border-gray-300 rounded-none overflow-hidden shadow-[8px_8px_0px_#000] hover:shadow-[4px_4px_0px_#000] hover:translate-x-1 hover:translate-y-1 transition-all"
             >
               {/* IMAGE SECTION */}
               <div className="relative h-40 sm:h-44 md:h-48 overflow-hidden border-b-4 border-gray-300">
