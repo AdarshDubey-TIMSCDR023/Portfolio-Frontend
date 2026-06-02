@@ -10,6 +10,17 @@ import { GiCricketBat } from "react-icons/gi";
 function Achievements() {
   const achievements = [
     {
+  title: "BCA (Data Science) Degree",
+  description:
+    "Successfully completed Bachelor of Computer Applications (Data Science) from Chhatrapati Shivaji Maharaj University, Navi Mumbai. Specialized in AI, Machine Learning, Data Science, Web Development, React.js, Node.js, MongoDB, and REST API Development.",
+  image: ConvocationImg,
+  icon: <FaAward />,
+  color: "from-purple-400 to-pink-400",
+  bgColor: "bg-purple-50",
+  tag: "Graduate",
+  link: "https://adarshdubeyportfolio.blogspot.com/2026/06/graduation-milestone-proud-to-share.html",
+},
+    {
       title: "Research Poster",
       description:
         "1st Prize Winner at ICAIM 2026. Recognized for innovative research contribution.",
