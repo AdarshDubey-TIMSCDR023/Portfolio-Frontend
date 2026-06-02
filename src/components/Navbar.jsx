@@ -132,39 +132,32 @@ function Navbar() {
 
   // ================= NAV LINKS =================
 
-  const navLinks = [
-
-    {
-      name: "Home",
-      id: "home",
-    },
-
-    {
-      name: "About",
-      id: "about",
-    },
-
-    {
-      name: "Achievements",
-      id: "achievements",
-    },
-
-    {
-      name: "Projects",
-      id: "projects",
-    },
-
-    {
-      name: "Certificates",
-      id: "certificates",
-    },
-
-    {
-      name: "Resume",
-      id: "resume",
-    },
-
-  ];
+const navLinks = [
+  {
+    name: "Home",
+    id: "home",
+  },
+  {
+    name: "About",
+    id: "about",
+  },
+  {
+    name: "Projects",
+    id: "projects",
+  },
+  {
+    name: "Achievements",
+    id: "achievements",
+  },
+  {
+    name: "Certificates",
+    id: "certificates",
+  },
+  {
+    name: "Resume",
+    id: "resume",
+  },
+];
 
   return (
     <>
