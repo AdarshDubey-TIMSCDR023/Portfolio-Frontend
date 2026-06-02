@@ -12,7 +12,7 @@ function Achievements() {
     {
       title: "Bachelor of Computer Applications(Data Science)",
       description:
-        "Successfully completed Bachelor of Computer Applications (BCA) in 2025, building a strong foundation in software development, web technologies, databases, and computer science.",
+        "Successfully completed Bachelor of Computer Applications (DS) in 2025, building a strong foundation in software development, web technologies, databases, and computer science.",
       image:
         "https://blogger.googleusercontent.com/img/a/AVvXsEgXNPR-oa6uVF5mpp4i5yJTNZ3Oy1wrtNvm2owp4UyONXx8vWTGhJeYhWVyV1aYluZk-AS4zBb1qCO02BF6ZwUmMxvir9WQ60k8Y6zR40XGrl9mlq4XWMUdqVfpZMSzzHczpyaPb5eLdomLs1HMeX6kysZn6_gcqCrkjdXilsDNOrX_f96DDoaP7JLBztk",
       icon: <FaAward />,
