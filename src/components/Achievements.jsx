@@ -10,7 +10,7 @@ import { GiCricketBat } from "react-icons/gi";
 function Achievements() {
   const achievements = [
     {
-      title: "Bachelor of Computer Applications",
+      title: "Bachelor of Computer Applications(Data Science)",
       description:
         "Successfully completed Bachelor of Computer Applications (BCA) in 2025, building a strong foundation in software development, web technologies, databases, and computer science.",
       image:
