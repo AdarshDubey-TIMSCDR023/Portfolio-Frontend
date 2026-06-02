@@ -285,7 +285,7 @@ function Achievements() {
 
                 {/* VIEW DETAILS LINK */}
                 <div className="mt-4 sm:mt-5 flex items-center gap-2 text-[10px] sm:text-xs font-black text-gray-500 group-hover:text-gray-700 transition-colors duration-200 font-mono">
-                  <span>[ VIEW PROJECT ]</span>
+                  <span>[ VIEW DETAILS ]</span>
                   <motion.span
                     animate={{ x: [0, 4, 0] }}
                     transition={{ duration: 0.8, repeat: Infinity }}
